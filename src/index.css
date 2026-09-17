@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 106px; }
+  body { @apply m-0 min-w-[320px] overflow-x-hidden bg-ivory font-sans text-ink antialiased; text-rendering: optimizeLegibility; }
+  * { @apply box-border; }
+  img { max-width: 100%; }
+  section[id] { scroll-margin-top: 106px; }
+  :focus-visible { @apply outline-2 outline-offset-4 outline-gold-600; }
+  ::selection { @apply bg-gold-300 text-obsidian; }
+  ::-webkit-scrollbar { width: 9px; }
+  ::-webkit-scrollbar-track { @apply bg-ivory; }
+  ::-webkit-scrollbar-thumb { @apply rounded-full bg-gold-500; border: 2px solid #F8F5EE; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gold-600; }
+}
+
+@layer components {
+  .eyebrow { @apply text-[10px] font-bold uppercase tracking-[.22em] text-gold-600; }
+  .section-title { @apply font-display text-5xl leading-[.86] tracking-[-.025em] text-obsidian sm:text-6xl lg:text-7xl; }
+  .section-title em { @apply font-normal text-gold-600; }
+  .footer-heading { @apply text-[10px] font-bold uppercase tracking-luxe text-ink/55; }
+  .footer-links { @apply mt-4 flex flex-col gap-2.5 text-sm text-ink/65; }
+  .footer-links a { @apply transition hover:text-gold-600; }
+  .social-link { @apply flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink/65 transition hover:border-gold-600 hover:bg-gold-600 hover:text-white; }
+  .gold-sheen::after { content: ''; @apply pointer-events-none absolute inset-y-0 w-1/2 -translate-x-[180%] skew-x-[-22deg] bg-white/35; animation: button-sheen 3.8s ease-in-out infinite; }
+  .hero-grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E"); mix-blend-mode: soft-light; }
+  .gold-rule { @apply h-px w-12 bg-gold-gradient; }
+  .image-frame { @apply relative after:pointer-events-none after:absolute after:inset-3 after:border after:border-white/35; }
+}
+
+@layer utilities {
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .text-gold-gradient { @apply bg-gold-shine bg-[length:200%_auto] bg-clip-text text-transparent; }
+}
+
+@media (max-width: 640px) {
+  .section-title { font-size: 2.75rem; }
+}
+
+@keyframes button-sheen {
+  0%, 50% { transform: translateX(-180%) skewX(-22deg); }
+  72%, 100% { transform: translateX(350%) skewX(-22deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
