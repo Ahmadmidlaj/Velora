@@ -39,14 +39,14 @@ gold-jewellery-store/
         ├── TrustBadges.jsx       # Hallmark, certification, exchange assurance
         ├── StoreLocator.jsx      # Boutique CTA and directions link
         ├── WhatsAppFloat.jsx     # Persistent inquiry action
-        └── Footer.jsx            # Newsletter and secondary navigation
+        └── Footer.jsx            # Store contact details and secondary navigation
 ```
 
 ## 3. Customization guide
 
 - **Products:** replace the mock products, prices, descriptions, and image URLs in `src/data/products.js`.
-- **Brand details:** Velora and Uppinangady are in place. Add the real phone number and replace the `919999999999` WhatsApp placeholder in the component files.
-- **WhatsApp & site settings:** update the central values in `src/data/site.js`; every inquiry CTA uses these values.
+- **Business details:** the verified launch details are centralised in `src/data/site.js`: Prithvi Shopping Mall, near SBI Bank, Uppinangady 574241; WhatsApp and primary phone `+91 91801 96916`; secondary phone `+91 78999 74358`; GSTIN `29ABCFV6880E1ZR`.
+- **WhatsApp & site settings:** all inquiry CTAs read from `src/data/site.js`. India’s country code is included in the WhatsApp link, so it opens the correct number.
 - **SEO:** set the live canonical domain through `VITE_SITE_URL` before launch; page metadata and local-business structured data are maintained in `src/components/SEO.jsx`.
 - **Visual system:** adjust ivory, gold, espresso, typefaces, or motion timing in `tailwind.config.js` and `src/index.css`.
 - **Images:** current imagery uses Unsplash URLs as showcase placeholders. License and host final campaign photography before production deployment.
@@ -64,3 +64,10 @@ The app is intentionally static: there is no checkout, authentication, or server
 1. Copy `.env.example` to `.env.production` and set `VITE_SITE_URL` to the real live domain.
 2. Run `npm run build`. It generates a canonical URL, sitemap, and sitemap reference in `robots.txt` for that domain.
 3. Add the published domain to Google Search Console and keep Velora's Google Business Profile, address, categories, phone number, and website link accurate.
+
+## Deployment checklist
+
+1. Set `VITE_SITE_URL` to the final HTTPS domain in the hosting provider’s environment variables (or `.env.production` before building).
+2. Deploy the output of `npm run build`; Vercel, Netlify, and Cloudflare Pages all detect this Vite project with build command `npm run build` and output directory `dist`.
+3. Verify the published site’s directions link, both tap-to-call buttons, and WhatsApp inquiry flow on a mobile phone.
+4. Replace showcase imagery and catalogue mock data with licensed final campaign photography and actual product details before advertising individual pieces.

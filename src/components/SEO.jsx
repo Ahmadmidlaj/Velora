@@ -12,10 +12,12 @@ export default function SEO() {
         '@type': 'JewelryStore',
         ...(businessId && { '@id': businessId }),
         name: site.name,
-        description: 'A refined destination for gold and diamond jewellery in Uppinangady, Karnataka.',
-        address: { '@type': 'PostalAddress', addressLocality: 'Uppinangady', addressRegion: 'Karnataka', addressCountry: 'IN' },
+        description: 'A refined destination for gold and diamond jewellery at Prithvi Shopping Mall, near SBI Bank, Uppinangady, Karnataka.',
+        address: { '@type': 'PostalAddress', streetAddress: site.streetAddress, addressLocality: 'Uppinangady', addressRegion: 'Karnataka', postalCode: site.postalCode, addressCountry: 'IN' },
         areaServed: { '@type': 'AdministrativeArea', name: 'Uppinangady, Karnataka' },
-        hasMap: 'https://maps.google.com/?q=Uppinangady,Karnataka',
+        hasMap: site.mapsUrl,
+        telephone: site.primaryPhone,
+        taxID: site.gstNumber,
         priceRange: '$$$',
         sameAs: [site.instagram],
         ...(site.siteUrl && { url: site.siteUrl, logo: `${site.siteUrl}/velora-logo-transparent.png`, image: socialImage }),
@@ -29,8 +31,8 @@ export default function SEO() {
 
   return <Helmet>
     <title>Velora Gold & Diamonds | Jewellery in Uppinangady</title>
-    <meta name="description" content="Velora Gold & Diamonds is Uppinangady's destination for gold, diamond, bridal and everyday jewellery. Discover a piece for every celebration." />
-    <meta name="keywords" content="jewellery in Uppinangady, jewellery shop in Uppinangady, Velora Gold and Diamonds, gold jewellery Uppinangady, diamond jewellery Uppinangady, bridal jewellery Karnataka" />
+    <meta name="description" content="Velora Gold & Diamonds at Prithvi Shopping Mall, near SBI Bank, Uppinangady—gold, diamond, bridal and everyday jewellery for every celebration." />
+    <meta name="keywords" content="jewellery in Uppinangady, Prithvi Shopping Mall jewellery shop, gold jewellery Uppinangady, diamond jewellery Uppinangady, bridal jewellery Karnataka, Velora Gold and Diamonds" />
     <meta name="author" content="Velora Gold & Diamonds" />
     <meta name="application-name" content="Velora Gold & Diamonds" />
     <meta name="geo.region" content="IN-KA" />
